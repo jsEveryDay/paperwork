@@ -7,9 +7,9 @@ var gulp = require('gulp'),
     path = require("path"),
     annotate = require('gulp-ng-annotate'),
     jshint = require('gulp-jshint'),
-    jshint_stylish = require('jshint-stylish'),
-    bower = require('gulp-bower');
-
+    csso = require('gulp-csso'),
+    bower = require('gulp-bower'),
+    strip = require('gulp-strip-comments');
 
 var paths = {
     bootstrap: [
@@ -94,15 +94,52 @@ gulp.task('compileLessPaperworkThemeV1', function () {
         .pipe(livereload());
 });
 
-gulp.task('concatLibCSS', function () {
+gulp.task('minifycss', function () {
     gulp.src([
+        'public/css/themes/paperwork-v1.min.css',
+        'public/css/freqselector.min.css',
+        'public/css/typeahead.min.css',
+        'public/css/mathquill.min.css',
         'public/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css',
         'app/js/bower_components/angular-loading-bar/src/loading-bar.css'
     ])
-        .pipe(concat('libs.css'))
-        .pipe(gulp.dest(paths.output.css));
+        .pipe(concat('one.css'))
+        .pipe(gulp.dest('public/css'))
+        .pipe(csso({
+            comments: false
+        }))
+        .pipe(rename('one.min.css'))
+        .pipe(gulp.dest('public/css'));
+        
 });
 
+gulp.task('jsComments', function () {
+    return gulp.src([
+        'public/ckeditor/**/*.js',
+        'public/js/**/*.js'
+    ])
+        .pipe(strip())
+        .pipe(gulp.dest(function(file) {
+            return file.base;
+        }));
+});
+gulp.task('build_main', function () {
+    return gulp.src([
+        'public/js/jquery.min.js',
+        'public/js/angular.min.js',
+        'public/js/bootstrap.min.js',
+        'public/js/tagsinput.min.js',
+        'public/js/libraries.min.js'
+    ])
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('public/js/'))
+        .pipe(rename('main.min.js'))
+        .pipe(uglify({
+            mangle: false,
+            compress: false
+        }))
+        .pipe(gulp.dest('public/js/'))
+});
 
 gulp.task('compileLessFreqselector', function() {
 	gulp
@@ -230,16 +267,17 @@ gulp.task('bower-update', function () {
 gulp.task('less', ['compileLessBootstrapTheme', 'compileLessPaperworkThemeV1', 'compileLessFreqselector', 'compileLessTypeahead']);
 gulp.task('js', ['compileJsBootstrap', 'compileJsPaperwork', 'compileJsPaperworkNative', 'compileJsAngular', 'compileJsJquery', 'compileJsTagsinput', 'compileJsLibraries', 'compileJsLtIe9Compat', 'compileJsLtIe11Compat']);
 
-gulp.task('default', ['less', 'lint', 'js', 'concatLibCSS']);
+gulp.task('default', ['less', 'lint', 'js']);
 gulp.task('prod', ['default', 'minifyJs']);
+gulp.task('make', ['minifycss', 'build_main','jsComments']);
 
-gulp.task('watch', function () {
-    livereload.listen();
-    gulp.watch('app/less/*.less', ['less']);
-    gulp.watch('app/less/bootstrap/*.less', ['less']);
-    gulp.watch('app/less/font-fontawesome/*.less', ['less']);
-    gulp.watch('app/less/paperwork-themes/paperwork-v1/*.less', ['less']);
-    gulp.watch('app/js/**/*.js', ['js']);
-    gulp.watch('app/js/bootstrap/*.js', ['compileJsBootstrap']);
-    gulp.watch('app/js/paperwork/*.js', ['compileJsPaperwork']);
-});
+// gulp.task('watch', function () {
+//     livereload.listen();
+//     gulp.watch('app/less/*.less', ['less']);
+//     gulp.watch('app/less/bootstrap/*.less', ['less']);
+//     gulp.watch('app/less/font-fontawesome/*.less', ['less']);
+//     gulp.watch('app/less/paperwork-themes/paperwork-v1/*.less', ['less']);
+//     gulp.watch('app/js/**/*.js', ['js']);
+//     gulp.watch('app/js/bootstrap/*.js', ['compileJsBootstrap']);
+//     gulp.watch('app/js/paperwork/*.js', ['compileJsPaperwork']);
+// });

@@ -17,7 +17,7 @@
         <div class="col-md-5 col-sm-7 hidden-xs">
             <div class="fa sidebar-collapse-switch" ng-show="!expandedNoteLayout"
                 ng-class="sidebarCollapsed ? 'fa-chevron-right sidebar-collapse-switch-closed' : 'fa-chevron-left col-sm-offset-3 col-md-offset-2'"
-                ng-click="sidebarCollapsed = !sidebarCollapsed" ng-init="sidebarCollapsed = false"></div>
+                ng-click="sidebarCollapsed = !sidebarCollapsed" ng-init="sidebarCollapsed = true"></div>
     		<div id="sidebarNotebooks" class="col-sm-3 col-md-2 sidebar hidden-xs animate-panel disable-selection" ng-controller="SidebarNotebooksController" ng-show="isVisible()" ng-hide="sidebarCollapsed" ng-init="initialiseSidebar()">
     			<ul class="nav nav-sidebar sidebar-no-border" ng-hide="sidebarCollapsed">
     				<div class="tree">
@@ -70,7 +70,7 @@
     		</div>
     
     		<div id="sidebarNotes" class="col-sm-4 col-md-3 sidebar hidden-xs animate-panel"
-                 ng-controller="SidebarNotesController" ng-show="isVisible()" ng-class="sidebarCollapsed ? 'sidebar-collapsed-notes' : 'col-sm-offset-3 col-md-offset-2'" ng-if="(notes.length != 0)">
+                 ng-controller="SidebarNotesController" ng-show="true" ng-class="sidebarCollapsed ? 'sidebar-collapsed-notes' : 'col-sm-offset-3 col-md-offset-2'" ng-if="(notes.length != 0)">
     			<div class="nav nav-sidebar notes-list sidebar-no-border" ng-class="sidebarCollapsed ? 'sidebar-collapsed-notes-list' : ''" ng-cloak>
     			    <p class="text-center">
     			        [[ Lang::get('keywords.sort_notes_by') ]]
@@ -122,7 +122,7 @@
 		<div id="paperworkViewParent" 
              class="main col-xs-12 {{ isVisible() ?
                 (sidebarCollapsed ? 'col-sm-8 col-md-9 col-sm-offset-4 col-md-offset-3' : 'col-sm-5 col-md-7 col-sm-offset-7 col-md-offset-5' )
-                : 'col-sm-12 col-md-12' }}"
+                : 'col-sm-9 col-md-9 col-sm-offset-4 col-md-offset-3' }}"
              ng-controller="ViewController">
              <div class="text-center" 
                   id="paperworkViewEmpty" 

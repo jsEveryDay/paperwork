@@ -28,29 +28,27 @@
     </nav>
 
     <div class="row">
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-12 col-sm-12">
             <form role="form" class="form">
                 <div>
                     <div class="page-header">
-                        <div class="form-group {{ errors.title ? 'has-error' : '' }}">
+                        <div class="form-group col-md-9{{ errors.title ? 'has-error' : '' }}">
                             <input type="text" class="form-control input-lg" id="title"
                                    placeholder="[[Lang::get('keywords.note_title')]]"
                                    ng-model="templateNoteEdit.version.title">
+
                         </div>
-                        <div class="form-group {{ errors.tags ? 'has-error' : '' }}">
-                            <input type="text" class="form-control input-lg" id="tags"
-                                   placeholder="[[Lang::get('keywords.tags_separated')]]">
+                        <div class="col-md-3">
+                            @include('partials/file-uploader', array('uploadEnabled' => true, 'actionsEnabled' => true))
                         </div>
                     </div>
-                    <div class="page-content">
+                    
+                    <div class="page-content col-md-12 col-sm-12">
                         <textarea id="content" class="form-control" rows="16"
                                   ng-model="templateNoteEdit.version.content"></textarea>
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="col-md-3 col-sm-12">
-            @include('partials/file-uploader', array('uploadEnabled' => true, 'actionsEnabled' => true))
         </div>
     </div>
 </div>

@@ -51,13 +51,10 @@ angular.module('paperworkNotes').controller('NotesEditController',
 
             var ck = CKEDITOR.replace('content', {
                 fullPage: false,
-                // extraPlugins: 'myplugin,anotherplugin',
-                // removePlugins: 'sourcearea,save,newpage,preview,print,forms',
-                toolbarCanCollapse: true,
-                toolbarStartupExpanded: false,
+                toolbarStartupExpanded: true,
                 tabSpaces: 4,
                 skin: 'bootstrapck',
-                height: '400px',
+                height: '55vh',
 
                 autosave_saveOnDestroy: true,
                 autosave_saveDetectionSelectors: "[id*='updateNote']"
@@ -162,5 +159,5 @@ angular.module('paperworkNotes').controller('NotesEditController',
         $rootScope.navbarMainMenu = false;
         $rootScope.navbarSearchForm = false;
         $rootScope.expandedNoteLayout = true;
-	CKEDITOR.dtd.$removeEmpty['span'] = false; //necessary to CKEDITOR fontawesome plugin
+	CKEDITOR.dtd.$removeEmpty['span'] = false; 
     });

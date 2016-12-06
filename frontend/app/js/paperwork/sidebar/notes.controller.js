@@ -174,7 +174,7 @@ angular.module('paperworkNotes').controller('SidebarNotesController',
       var closeNoteCallback = function() {
         var currentNote = $rootScope.getNoteSelectedId(true);
         $window.history.back();
-        CKEDITOR.instances.content.destroy();
+        //CKEDITOR.instances.content.destroy(); Method depreciated. This flag breaks angular.
         $rootScope.templateNoteEdit = {};
         NotebooksService.getTags();
         return true;
@@ -445,5 +445,15 @@ angular.module('paperworkNotes').controller('SidebarNotesController',
             }); 
         }*/
     };
-
+    
+    $scope.$watch(function(){
+      return $rootScope.notes;
+    },function(){
+      if($rootScope.notes != undefined){
+        $scope.changeSortOrder('modification_date');
+      } else {
+        console.log('not defined yet');
+      }
+    });
+    
   });

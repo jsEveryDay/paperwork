@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -13,10 +13,10 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) http://ckeditor.com/builder/12208d45edf9fe4a9f160c59b4d302ca
+ * (2) http://ckeditor.com/builder/84a604a33732b43ce879cfa18a33f111
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) http://ckeditor.com/builder/download/12208d45edf9fe4a9f160c59b4d302ca
+ * (3) http://ckeditor.com/builder/download/84a604a33732b43ce879cfa18a33f111
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -34,6 +34,7 @@ var CKBUILDER_CONFIG = {
 		'bender-out.log',
 		'dev',
 		'.DS_Store',
+		'.editorconfig',
 		'.gitattributes',
 		'.gitignore',
 		'gruntfile.js',
@@ -41,6 +42,7 @@ var CKBUILDER_CONFIG = {
 		'.jscsrc',
 		'.jshintignore',
 		'.jshintrc',
+		'less',
 		'.mailmap',
 		'node_modules',
 		'package.json',
@@ -50,28 +52,40 @@ var CKBUILDER_CONFIG = {
 	plugins : {
 		'about' : 1,
 		'autosave' : 1,
+		'base64image' : 1,
 		'basicstyles' : 1,
 		'blockquote' : 1,
 		'clipboard' : 1,
 		'codesnippet' : 1,
+		'colorbutton' : 1,
+		'docprops' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
 		'find' : 1,
 		'floatingspace' : 1,
 		'fontawesome' : 1,
+		'font' : 1,
 		'format' : 1,
+		'htmlwriter' : 1,
 		'image2' : 1,
 		'indentlist' : 1,
 		'justify' : 1,
 		'link' : 1,
 		'list' : 1,
-		'mathedit' : 1,
+		'magicline' : 1,
 		'onchange' : 1,
+		'pagebreak' : 1,
+		'pastebase64' : 1,
 		'pastefromword' : 1,
 		'pastetext' : 1,
+		'quicktable' : 1,
 		'resize' : 1,
-		'symbol' : 1,
+		'showborders' : 1,
+		'sourcearea' : 1,
 		'tab' : 1,
+		'table' : 1,
+		'tableresize' : 1,
+		'tabletoolstoolbar' : 1,
 		'toolbar' : 1,
 		'undo' : 1,
 		'wysiwygarea' : 1
