@@ -1,12 +1,6 @@
-Paperwork - OpenSource note-taking & archiving
+Paperwork - Fork with UI changes and the latest CKeditor
 ==============================================
-
-[![Join the chat at https://gitter.im/twostairs/paperwork](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/twostairs/paperwork?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/twostairs/paperwork.svg?branch=master)](https://travis-ci.org/twostairs/paperwork)
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/twostairs/paperwork/tree/deploy-heroku-develop)
-
-<img src="https://raw.githubusercontent.com/twostairs/paperwork/master/paperwork-logo.png" width="250" align="left" />
+<img src="https://s11.postimg.org/esa1fwb0j/2016_12_06_9_03_14.jpg" />
 
 Paperwork aims to be an open-source, self-hosted alternative to services like Evernote ®, Microsoft OneNote ® or Google Keep ®.
 
