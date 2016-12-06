@@ -1,5 +1,5 @@
 [main]
-host = https://www.transifex.com
+host = https://www.none.com
 
 [paperwork.keywordsphp]
 file_filter = frontend/app/lang/<lang>/keywords.php
