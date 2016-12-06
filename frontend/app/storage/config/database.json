@@ -1,8 +1,8 @@
 {
     "driver": "mysql",
-    "database": "notes",
+    "database": "dbname",
     "host": "localhost",
-    "username": "mynotes",
-    "password": "Xl9ocY2t621I6X",
+    "username": "user",
+    "password": "pass",
     "port": 3306
 }
